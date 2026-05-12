@@ -1,0 +1,5 @@
+hub hub
+shortLabel RiboSeq Hub
+longLabel RiboSeq Track Hub
+genomesFile RiboSeqHub.genomes.txt
+email your@email.com

@@ -1,0 +1,263 @@
+track SRR9295900
+shortLabel SRR9295900
+longLabel RiboSeq SRR9295900
+type bigWig
+compositeTrack on
+
+    track SRR9295900forward
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295900_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295900 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9295900
+
+    track SRR9295900reverse
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295900_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295900 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9295900
+
+track SRR9295905
+shortLabel SRR9295905
+longLabel RiboSeq SRR9295905
+type bigWig
+compositeTrack on
+
+    track SRR9295905forward
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295905_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295905 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9295905
+
+    track SRR9295905reverse
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295905_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295905 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9295905
+
+track SRR9295906
+shortLabel SRR9295906
+longLabel RiboSeq SRR9295906
+type bigWig
+compositeTrack on
+
+    track SRR9295906forward
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295906_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295906 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9295906
+
+    track SRR9295906reverse
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295906_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295906 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9295906
+
+track SRR9295907
+shortLabel SRR9295907
+longLabel RiboSeq SRR9295907
+type bigWig
+compositeTrack on
+
+    track SRR9295907forward
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295907_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295907 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9295907
+
+    track SRR9295907reverse
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295907_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295907 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9295907
+
+track SRR9295908
+shortLabel SRR9295908
+longLabel RiboSeq SRR9295908
+type bigWig
+compositeTrack on
+
+    track SRR9295908forward
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295908_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295908 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9295908
+
+    track SRR9295908reverse
+    bigDataUrl http://143.239.109.114/SRR929/59/SRR9295908_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295908 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9295908
+
+track SRR9737070
+shortLabel SRR9737070
+longLabel RiboSeq SRR9737070
+type bigWig
+compositeTrack on
+
+    track SRR9737070forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737070_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737070 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737070
+
+    track SRR9737070reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737070_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737070 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737070
+
+track SRR9737071
+shortLabel SRR9737071
+longLabel RiboSeq SRR9737071
+type bigWig
+compositeTrack on
+
+    track SRR9737071forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737071_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737071 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737071
+
+    track SRR9737071reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737071_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737071 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737071
+
+track SRR9737072
+shortLabel SRR9737072
+longLabel RiboSeq SRR9737072
+type bigWig
+compositeTrack on
+
+    track SRR9737072forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737072_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737072 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737072
+
+    track SRR9737072reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737072_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737072 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737072
+
+track SRR9737073
+shortLabel SRR9737073
+longLabel RiboSeq SRR9737073
+type bigWig
+compositeTrack on
+
+    track SRR9737073forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737073_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737073 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737073
+
+    track SRR9737073reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737073_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737073 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737073
+
+track SRR9737074
+shortLabel SRR9737074
+longLabel RiboSeq SRR9737074
+type bigWig
+compositeTrack on
+
+    track SRR9737074forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737074_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737074 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737074
+
+    track SRR9737074reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737074_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737074 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737074
+
+track SRR9737075
+shortLabel SRR9737075
+longLabel RiboSeq SRR9737075
+type bigWig
+compositeTrack on
+
+    track SRR9737075forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737075_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737075 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737075
+
+    track SRR9737075reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737075_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737075 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737075
+
+track SRR9737077
+shortLabel SRR9737077
+longLabel RiboSeq SRR9737077
+type bigWig
+compositeTrack on
+
+    track SRR9737077forward
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737077_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9737077 forward
+    type bigWig
+    color 255,0,0
+    parent SRR9737077
+
+    track SRR9737077reverse
+    bigDataUrl http://143.239.109.114/SRR973/70/SRR9737077_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9737077 reverse
+    type bigWig
+    color 0,0,255
+    parent SRR9737077
