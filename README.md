@@ -114,17 +114,17 @@ Builds and stages a UCSC track hub for the specified samples.
 | `--data-dir` | ✅ | `$RIBOHUB_DATA_DIR` | Root directory of sorted bigWig files |
 | `--output-dir` | ✅ | `$RIBOHUB_OUTPUT_DIR` | Directory where the hub will be written |
 | `--base-url` | ✅ | `$RIBOHUB_BASE_URL` | Public URL serving `output-dir` |
-| `--genome` | — | `hg38` | UCSC assembly (e.g. `mm10`, `dm6`) |
-| `--hub-name` | — | `RiboSeqHub` | Hub directory name (no spaces) |
-| `--email` | — | `your@email.com` | Contact email written into `hub.txt` |
-| `--include` | — | `minimal` | Track layout mode (see below) |
-| `--strict` | — | off | Exit with error if any sample is missing or partial |
-| `--dry-run` | — | off | Report what would be built without writing files |
-| `--color-fwd` | — | `#FF0000` | Forward strand color (hex) |
-| `--color-rev` | — | `#0000FF` | Reverse strand color (hex) |
-| `--color-fwd-multi` | — | `#FF9696` | Forward multimapped color (hex) |
-| `--color-rev-multi` | — | `#6496FF` | Reverse multimapped color (hex) |
-| `--verbose` | — | off | Enable debug logging |
+| `--genome` | ❌ | `hg38` | UCSC assembly (e.g. `mm10`, `dm6`) |
+| `--hub-name` | ❌ | `RiboSeqHub` | Hub directory name (no spaces) |
+| `--email` | ❌ | `your@email.com` | Contact email written into `hub.txt` |
+| `--include` | ❌ | `minimal` | Track layout mode (see below) |
+| `--strict` | ❌ | off | Exit with error if any sample is missing or partial |
+| `--dry-run` | ❌ | off | Report what would be built without writing files |
+| `--color-fwd` | ❌ | `#FF0000` | Forward strand color (hex) |
+| `--color-rev` | ❌ | `#0000FF` | Reverse strand color (hex) |
+| `--color-fwd-multi` | ❌ | `#FF9696` | Forward multimapped color (hex) |
+| `--color-rev-multi` | ❌ | `#6496FF` | Reverse multimapped color (hex) |
+| `--verbose` | ❌ | off | Enable debug logging |
 
 ### Sample Selection
 
