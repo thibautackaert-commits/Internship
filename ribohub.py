@@ -4,6 +4,10 @@ Build a UCSC RiboSeq track hub from sorted bigWig files.
 Layout expected on disk:
     {data_dir}/{srr[:6]}/{srr[6:8]}/{srr}_pshifted_[unique_|multimapped_]{forward|reverse}.bigWig
     {data_dir}/{srr[:6]}/{srr[6:8]}/{srr}_pshifted_{forward|reverse}.bigWig    (bare = all reads)
+
+Output formats:
+    directory   : standard multi-file hub (hub.txt + genomes.txt + hg38/trackDb.txt + symlinks)
+    single-file : useOneFile hub (everything in one .hub.txt, no genomes.txt or trackDb.txt)
 """
 import csv
 import logging
@@ -12,7 +16,7 @@ import sys
 from pathlib import Path
 
 import click
-import trackhub # type: ignore
+import trackhub  # type: ignore
 
 
 # ----- defaults (informative; runtime values come from CLI) ----------------
@@ -67,11 +71,7 @@ def srr_to_dir(srr_id: str, data_dir: Path) -> Path:
 
 
 def classify_bigwig(path: Path) -> dict | None:
-    """Recognize a bigWig file's strand and kind. Returns None if unrecognized.
-
-    Returns {strand, kind, path}. kind=None means a 'bare' file (no kind suffix
-    in filename — used for the aggregate view).
-    """
+    """Recognize a bigWig file's strand and kind. Returns None if unrecognized."""
     fname = path.name
 
     if "_forward" in fname:
@@ -92,9 +92,7 @@ def classify_bigwig(path: Path) -> dict | None:
 
 
 def long_label_for_sample(srr_id: str, metadata_row: dict | None = None) -> str:
-    """Build the rich long label used at the supertrack level.
-    Stub for V3 — returns just the SRR ID. Wire metadata in here later.
-    """
+    """Build the rich long label used at the supertrack level."""
     if not metadata_row:
         return srr_id
     parts = [srr_id]
@@ -111,13 +109,7 @@ def discover_samples(
     sample_set: set[str],
     data_dir: Path,
 ) -> tuple[dict[str, dict[tuple[str, str | None], str]], set[str], set[str]]:
-    """For each requested SRR, find files on disk and classify them.
-
-    Returns:
-        found:        {srr_id: {(strand, kind): rel_posix_path}}
-        dir_missing:  set of SRR IDs with no directory on disk
-        dir_empty:    set of SRR IDs with empty / unrecognized contents
-    """
+    """For each requested SRR, find files on disk and classify them."""
     found: dict[str, dict[tuple[str, str | None], str]] = {}
     dir_missing: set[str] = set()
     dir_empty: set[str] = set()
@@ -186,7 +178,7 @@ def _make_plain_track(
     """Build a single plain Track for a strand/kind combo."""
     color = colors["fwd"] if strand == "forward" else colors["rev"]
     name_suffix = f"_{kind}" if kind else ""
-    return trackhub.Track(
+    kwargs = dict(
         name=trackhub.helpers.sanitize(f"{srr_id}{name_suffix}_{strand}"),
         url=f"{base_url}/{rel_path}",
         tracktype="bigWig",
@@ -194,8 +186,10 @@ def _make_plain_track(
         long_label=srr_id,
         color=color,
         visibility="full",
-        negateValues="on" if negate else "off",
     )
+    if negate:
+        kwargs["negateValues"] = "on"
+    return trackhub.Track(**kwargs)
 
 
 def build_aggregate(
@@ -204,9 +198,7 @@ def build_aggregate(
     base_url: str,
     colors: dict[str, str],
 ) -> trackhub.AggregateTrack | None:
-    """Build the strand-overlay aggregate using bare (all-reads) files.
-    Returns None if either bare file is missing.
-    """
+    """Strand-overlay aggregate using bare (all-reads) files."""
     fwd = files.get(("forward", None))
     rev = files.get(("reverse", None))
     if not (fwd and rev):
@@ -252,9 +244,7 @@ def build_kind_composite(
     colors: dict[str, str],
     negate: bool = False,
 ) -> trackhub.CompositeTrack | None:
-    """Build the unique-vs-multimapped composite for one strand.
-    Returns None unless both unique and multimapped exist for that strand.
-    """
+    """Unique-vs-multimapped composite for one strand."""
     uniq = files.get((strand, "unique"))
     multi = files.get((strand, "multimapped"))
     if not (uniq and multi):
@@ -276,24 +266,27 @@ def build_kind_composite(
         viewLimits=VIEW_LIMITS,
         autoScale="off",
     )
-    comp.add_subtrack(trackhub.Track(
+    uniq_kwargs = dict(
         name=trackhub.helpers.sanitize(f"{srr_id}_{suffix}_unique"),
         url=f"{base_url}/{uniq}",
         tracktype="bigWig",
         short_label="unique",
         long_label=f"{srr_id} {strand} unique",
         color=base_color,
-        negateValues="on" if negate else "off",
-    ))
-    comp.add_subtrack(trackhub.Track(
+    )
+    multi_kwargs = dict(
         name=trackhub.helpers.sanitize(f"{srr_id}_{suffix}_multimapped"),
         url=f"{base_url}/{multi}",
         tracktype="bigWig",
         short_label="multi",
         long_label=f"{srr_id} {strand} multimapped",
         color=light_color,
-        negateValues="on" if negate else "off",
-    ))
+    )
+    if negate:
+        uniq_kwargs["negateValues"] = "on"
+        multi_kwargs["negateValues"] = "on"
+    comp.add_subtrack(trackhub.Track(**uniq_kwargs))
+    comp.add_subtrack(trackhub.Track(**multi_kwargs))
     return comp
 
 
@@ -305,14 +298,7 @@ def build_sample_supertrack(
     colors: dict[str, str],
     metadata_row: dict | None = None,
 ) -> trackhub.SuperTrack | None:
-    """Build the per-sample container with the right tracks for include_mode.
-
-    include_mode:
-      - 'minimal'   : just unique forward + unique reverse, plain tracks
-      - 'aggregate' : aggregate only
-      - 'composite' : FW composite + REV composite
-      - 'full'      : aggregate + FW composite + REV composite
-    """
+    """Per-sample SuperTrack containing the tracks for include_mode."""
     sample_super = trackhub.SuperTrack(
         name=trackhub.helpers.sanitize(srr_id),
         short_label=srr_id,
@@ -352,6 +338,55 @@ def build_sample_supertrack(
     return sample_super if added_anything else None
 
 
+# ----- output writers ------------------------------------------------------
+
+def write_directory_hub(hub, hub_name: str, output_dir: Path) -> Path:
+    """Write the standard multi-file hub. Returns the path to the hub.txt file."""
+    staging = output_dir / hub_name
+    if staging.exists():
+        shutil.rmtree(staging)
+    trackhub.upload.stage_hub(hub, staging=str(staging))
+    return staging / f"{hub_name}.hub.txt"
+
+
+def write_single_file_hub(
+    hub_name: str,
+    short_label: str,
+    long_label: str,
+    email: str,
+    genome: str,
+    trackdb,
+    output_dir: Path,
+) -> Path:
+    """Write a useOneFile hub: one .hub.txt containing hub stanza + genome + tracks.
+
+    This format is supported by UCSC and GWIPS-viz (gwips.ucc.ie). It collapses
+    hub.txt + genomes.txt + trackDb.txt into a single file. Limited to one genome.
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+    out_path = output_dir / f"{hub_name}.hub.txt"
+
+    lines: list[str] = [
+        f"hub {hub_name}",
+        f"shortLabel {short_label}",
+        f"longLabel {long_label}",
+        "useOneFile on",
+        f"email {email}",
+        "",
+        f"genome {genome}",
+        "",
+    ]
+
+    # Render every top-level track stanza (the SuperTracks).
+    # Each yields its full sub-tree via __str__.
+    for track in trackdb.children:
+        lines.append(str(track))
+        lines.append("")
+
+    out_path.write_text("\n".join(lines))
+    return out_path
+
+
 # ----- CLI -----------------------------------------------------------------
 
 @click.group()
@@ -376,9 +411,9 @@ def cli(ctx: click.Context, verbose: bool) -> None:
               help="Root directory containing sorted bigWig files.")
 @click.option("--output-dir", required=True, envvar="RIBOHUB_OUTPUT_DIR",
               type=click.Path(file_okay=False, path_type=Path),
-              help="Directory where the staged hub will be written.")
+              help="Directory where the hub will be written.")
 @click.option("--base-url", required=True, envvar="RIBOHUB_BASE_URL",
-              help="Public URL where output-dir is served (must be reachable by UCSC).")
+              help="Public URL where bigWig files are served (must be reachable by UCSC).")
 # Hub configuration
 @click.option("--genome", default="hg38", show_default=True,
               help="UCSC genome assembly (e.g. hg38, mm10).")
@@ -386,6 +421,11 @@ def cli(ctx: click.Context, verbose: bool) -> None:
               help="Hub directory name (no spaces).")
 @click.option("--email", default="your@email.com", show_default=True,
               help="Contact email written into hub.txt.")
+# Output
+@click.option("--output-format", default="directory", show_default=True,
+              type=click.Choice(["directory", "single-file"]),
+              help="directory: multi-file hub (hub.txt + genomes.txt + hg38/trackDb.txt); "
+                   "single-file: useOneFile hub (one .hub.txt).")
 # Build behavior
 @click.option("--include", "include_mode", default="minimal", show_default=True,
               type=click.Choice(["minimal", "aggregate", "composite", "full"]),
@@ -413,6 +453,7 @@ def generate(
     genome: str,
     hub_name: str,
     email: str,
+    output_format: str,
     include_mode: str,
     strict: bool,
     dry_run: bool,
@@ -446,7 +487,7 @@ def generate(
 
     if dry_run:
         click.echo(f"Dry run: would build {len(found)} sample(s) "
-                   f"with --include {include_mode}.")
+                   f"with --include {include_mode} and --output-format {output_format}.")
         return
 
     hub, _, _, trackdb = trackhub.default_hub(
@@ -476,14 +517,26 @@ def generate(
                    err=True)
         sys.exit(1)
 
-    staging = output_dir / hub_name
-    if staging.exists():
-        shutil.rmtree(staging)
-    trackhub.upload.stage_hub(hub, staging=str(staging))
+    # NOTE: Dispatch to the chosen output writer.
+    if output_format == "directory":
+        hub_file = write_directory_hub(hub, hub_name, output_dir)
+        public_url = f"{base_url}/{hub_name}/{hub_name}.hub.txt"
+    else:  # single-file
+        hub_file = write_single_file_hub(
+            hub_name=hub_name,
+            short_label=hub_name,
+            long_label=f"{hub_name} Track Hub",
+            email=email,
+            genome=genome,
+            trackdb=trackdb,
+            output_dir=output_dir,
+        )
+        public_url = f"{base_url}/{hub_name}.hub.txt"
 
     click.echo(f"Built hub for {samples_built} sample(s) "
-               f"with --include {include_mode}.")
-    click.echo(f"Hub URL: {base_url}/{hub_name}/hub.txt")
+               f"with --include {include_mode} and --output-format {output_format}.")
+    click.echo(f"Wrote: {hub_file}")
+    click.echo(f"Hub URL: {public_url}")
 
 
 if __name__ == "__main__":
