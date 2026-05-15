@@ -50,13 +50,6 @@ pip install trackhub click
 
 ## Installation
 
-```bash
-git clone https://github.com/your-org/ribohub.git
-cd ribohub
-pip install -e .
-```
-
-Or run directly:
 
 ```bash
 python ribohub.py --help
