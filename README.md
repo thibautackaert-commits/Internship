@@ -5,43 +5,43 @@ Code for my 2026 Internship. Builds GWIPS-viz track hubs from p-shifted RiboSeq 
 ## How it works
 ```mermaid
 flowchart TD
-    Start([generate command]) --> Parse[parse_samplesvalidate colorsbuild BuildContext]
-    Parse --> Discover[discover_sampleswalk srr_to_dirclassify bigWigs]
-    Discover --> LoadMeta{--metadataprovided?}
-    LoadMeta -->|yes| Meta[load_metadataSRR-keyed rows]
-    LoadMeta -->|no| FoundCheck
-    Meta --> FoundCheck{any samplesfound?}
+    %%{init: {"layout": "elk"}}%%
+    classDef input stroke:#38bdf8,fill:#f0f9ff,color:#0c4a6e
+    classDef process stroke:#4ade80,fill:#f0fdf4,color:#14532d
+    classDef decision stroke:#facc15,fill:#fefce8,color:#713f12
+    classDef output stroke:#818cf8,fill:#eef2ff,color:#312e81
+    classDef optional stroke:#fb923c,fill:#fff7ed,color:#7c2d12,stroke-dasharray:4 3
 
-    FoundCheck -->|no| Exit1[exit 1:nothing to build]
-    FoundCheck -->|yes| DryRun{--dry-run?}
+    subgraph "🚀 Command Flow"
+        Start([Generate]):::input --> Parse[Parse samples<br/>and build context]:::process
+        Parse --> Discover[Discover bigWigs<br/>on disk]:::process
+        Discover --> Init[Initialize default hub]:::process
+        Init --> Loop[Loop over SRRs<br/>build supertracks]:::process
+        Loop --> Mode{--include mode}:::decision
 
-    DryRun -->|yes| PrintPlan[print planreturn]
-    DryRun -->|no| Strict{--strictand gaps?}
+        Mode -->|minimal| Min[Unique reads only<br/>forward + reverse]:::process
+        Mode -->|aggregate| Agg[Strand overlay<br/>fwd + rev on one track]:::process
+        Mode -->|composite| Comp[Unique vs multimapped<br/>grouped per strand]:::process
+        Mode -->|full| Full[Overlay + composites<br/>everything]:::process
 
-    Strict -->|yes| Exit2[exit 1:refuse partial hub]
-    Strict -->|no| DefaultHub[trackhub.default_hubcreate hub, genome, trackDb]
+        Min --> Write[Write hub]:::output
+        Agg --> Write
+        Comp --> Write
+        Full --> Write
+        Write --> End([Print hub URL]):::output
+    end
 
-    DefaultHub --> Loop[for each SRR:build_sample_supertrack]
+    subgraph "⚙️ Optional Flags"
+        Meta[Load metadata CSV<br/>enrich sample labels]:::optional
+        Dry[--dry-run<br/>print plan & exit]:::optional
+        Strict[--strict<br/>abort on missing samples]:::optional
+        Single[--output-format single-file<br/>write one .hub.txt]:::optional
+    end
 
-    Loop --> Include{--include mode}
-    Include -->|minimal| Minimal[plain unique tracksforward + reverse]
-    Include -->|aggregate| Agg[build_aggregatestrand overlay]
-    Include -->|composite| Comp[build_kind_compositeunique vs multimapped]
-    Include -->|full| Both[aggregate + composite]
-
-    Minimal --> AnyBuilt{samples_built> 0?}
-    Agg --> AnyBuilt
-    Comp --> AnyBuilt
-    Both --> AnyBuilt
-
-    AnyBuilt -->|no| Exit3[exit 1:no valid samples]
-    AnyBuilt -->|yes| Format{--output-format}
-
-    Format -->|directory| DirHub[write_directory_hubstage_hub + symlinks]
-    Format -->|single-file| SingleHub[write_single_file_hubuseOneFile .hub.txt]
-
-    DirHub --> Done([echo hub file +public URL])
-    SingleHub --> Done
+    Parse -.-> Meta
+    Discover -.-> Dry
+    Discover -.-> Strict
+    Write -.-> Single
 ```
 
 ## Files
