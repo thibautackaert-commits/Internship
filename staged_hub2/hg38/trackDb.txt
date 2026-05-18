@@ -1,7 +1,7 @@
 track SRR9295900
 shortLabel SRR9295900
 longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide | 2
-superTrack on
+superTrack on show
 
 track SRR9295900agg
 shortLabel strand overlay
