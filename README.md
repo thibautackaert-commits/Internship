@@ -3,7 +3,8 @@
 Code for my 2026 Internship. Builds GWIPS-viz track hubs from p-shifted RiboSeq bigWigs.
 
 ## How it works
-<img width="4891" height="6100" alt="Untitled diagram-2026-05-18-112114" src="https://github.com/user-attachments/assets/21d6c421-f903-4d80-8fde-9680ff7859f1" />
+<img width="4891" height="6100" alt="Untitled diagram-2026-05-18-112200" src="https://github.com/user-attachments/assets/c30604a3-0050-481a-8009-70da60536ec1" />
+
 ## Files
 
 - `hub_builder.py` - the CLI tool
