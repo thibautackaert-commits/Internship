@@ -3,9 +3,8 @@ shortLabel RiboSeqHub
 longLabel RiboSeqHub Track Hub
 useOneFile on
 email your@email.com
-genome hg38
 
-# ----- main composite: all samples, filter-matrix browsing -----
+genome hg38
 
 track ribohub
 shortLabel All RiboSeq tracks
@@ -25,7 +24,6 @@ dimensions dimX=sample dimY=strand dimA=kind dimB=condition dimC=replicate
 sortOrder sample=+ strand=+ kind=+
 dragAndDrop subTracks
 
-    # SRR9295900 — has all 6 variants (bare + unique + multimapped, both strands)
     track SRR9295900_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_forward.bigWig
@@ -89,7 +87,6 @@ dragAndDrop subTracks
     subGroups sample=SRR9295900 strand=rev kind=multi condition=test replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
-    # SRR9295905 — bare files only
     track SRR9295905_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_forward.bigWig
@@ -111,7 +108,6 @@ dragAndDrop subTracks
     subGroups sample=SRR9295905 strand=rev kind=all condition=high replicate=rep1
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
-    # SRR9295906 — bare files only
     track SRR9295906_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_forward.bigWig
@@ -133,7 +129,6 @@ dragAndDrop subTracks
     subGroups sample=SRR9295906 strand=rev kind=all condition=high replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
-    # SRR9295907 — bare files only
     track SRR9295907_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_forward.bigWig
@@ -155,7 +150,6 @@ dragAndDrop subTracks
     subGroups sample=SRR9295907 strand=rev kind=all condition=high replicate=rep1
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
-    # SRR9295908 — bare files only
     track SRR9295908_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_forward.bigWig
@@ -176,8 +170,6 @@ dragAndDrop subTracks
     negateValues on
     subGroups sample=SRR9295908 strand=rev kind=all condition=high replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
-
-# ----- per-sample strand-overlay aggregates (siblings of composite) -----
 
 track SRR9295900_agg
 shortLabel SRR9295900 overlay
