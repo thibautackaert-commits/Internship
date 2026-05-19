@@ -3,8 +3,9 @@ shortLabel RiboSeqHub
 longLabel RiboSeqHub Track Hub
 useOneFile on
 email your@email.com
-
 genome hg38
+
+# ----- main composite: all samples, filter-matrix browsing -----
 
 track ribohub
 shortLabel All RiboSeq tracks
@@ -17,27 +18,28 @@ viewLimits -127:127
 maxHeightPixels 100:50:8
 subGroup1 sample Sample SRR9295900=SRR9295900 SRR9295905=SRR9295905 SRR9295906=SRR9295906 SRR9295907=SRR9295907 SRR9295908=SRR9295908
 subGroup2 strand Strand fwd=Forward rev=Reverse
-subGroup3 kind Kind all=All_reads
+subGroup3 kind Kind all=All_reads unique=Unique multi=Multimapped
 subGroup4 condition Condition test=Test high=High
 subGroup5 replicate Replicate rep1=Replicate_1 rep2=Replicate_2
-dimensions dimX=sample dimY=strand dimA=condition dimB=replicate
+dimensions dimX=sample dimY=strand dimA=kind dimB=condition dimC=replicate
 sortOrder sample=+ strand=+ kind=+
 dragAndDrop subTracks
 
-    track SRR9295900_forward
+    # SRR9295900 — has all 6 variants (bare + unique + multimapped, both strands)
+    track SRR9295900_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_forward.bigWig
-    shortLabel SRR9295900 fwd
+    shortLabel SRR9295900 fwd all
     longLabel SRR9295900 forward all-reads (Kidney HEK293 Test rep2)
     type bigWig
     color 255,0,0
     subGroups sample=SRR9295900 strand=fwd kind=all condition=test replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
-    track SRR9295900_reverse
+    track SRR9295900_reverse_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_reverse.bigWig
-    shortLabel SRR9295900 rev
+    shortLabel SRR9295900 rev all
     longLabel SRR9295900 reverse all-reads (Kidney HEK293 Test rep2)
     type bigWig
     color 0,0,255
@@ -45,20 +47,63 @@ dragAndDrop subTracks
     subGroups sample=SRR9295900 strand=rev kind=all condition=test replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
-    track SRR9295905_forward
+    track SRR9295900_forward_unique
+    parent ribohub on
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_forward.bigWig
+    shortLabel SRR9295900 fwd uniq
+    longLabel SRR9295900 forward unique (Kidney HEK293 Test rep2)
+    type bigWig
+    color 200,0,0
+    subGroups sample=SRR9295900 strand=fwd kind=unique condition=test replicate=rep2
+    metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
+
+    track SRR9295900_reverse_unique
+    parent ribohub on
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_reverse.bigWig
+    shortLabel SRR9295900 rev uniq
+    longLabel SRR9295900 reverse unique (Kidney HEK293 Test rep2)
+    type bigWig
+    color 0,0,200
+    negateValues on
+    subGroups sample=SRR9295900 strand=rev kind=unique condition=test replicate=rep2
+    metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
+
+    track SRR9295900_forward_multi
+    parent ribohub on
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_forward.bigWig
+    shortLabel SRR9295900 fwd multi
+    longLabel SRR9295900 forward multimapped (Kidney HEK293 Test rep2)
+    type bigWig
+    color 255,150,150
+    subGroups sample=SRR9295900 strand=fwd kind=multi condition=test replicate=rep2
+    metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
+
+    track SRR9295900_reverse_multi
+    parent ribohub on
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_reverse.bigWig
+    shortLabel SRR9295900 rev multi
+    longLabel SRR9295900 reverse multimapped (Kidney HEK293 Test rep2)
+    type bigWig
+    color 100,150,255
+    negateValues on
+    subGroups sample=SRR9295900 strand=rev kind=multi condition=test replicate=rep2
+    metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
+
+    # SRR9295905 — bare files only
+    track SRR9295905_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_forward.bigWig
-    shortLabel SRR9295905 fwd
+    shortLabel SRR9295905 fwd all
     longLabel SRR9295905 forward all-reads (Kidney HEK293 High rep1)
     type bigWig
     color 255,0,0
     subGroups sample=SRR9295905 strand=fwd kind=all condition=high replicate=rep1
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
-    track SRR9295905_reverse
+    track SRR9295905_reverse_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_reverse.bigWig
-    shortLabel SRR9295905 rev
+    shortLabel SRR9295905 rev all
     longLabel SRR9295905 reverse all-reads (Kidney HEK293 High rep1)
     type bigWig
     color 0,0,255
@@ -66,20 +111,21 @@ dragAndDrop subTracks
     subGroups sample=SRR9295905 strand=rev kind=all condition=high replicate=rep1
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
-    track SRR9295906_forward
+    # SRR9295906 — bare files only
+    track SRR9295906_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_forward.bigWig
-    shortLabel SRR9295906 fwd
+    shortLabel SRR9295906 fwd all
     longLabel SRR9295906 forward all-reads (Kidney HEK293 High rep2)
     type bigWig
     color 255,0,0
     subGroups sample=SRR9295906 strand=fwd kind=all condition=high replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
-    track SRR9295906_reverse
+    track SRR9295906_reverse_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_reverse.bigWig
-    shortLabel SRR9295906 rev
+    shortLabel SRR9295906 rev all
     longLabel SRR9295906 reverse all-reads (Kidney HEK293 High rep2)
     type bigWig
     color 0,0,255
@@ -87,20 +133,21 @@ dragAndDrop subTracks
     subGroups sample=SRR9295906 strand=rev kind=all condition=high replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
-    track SRR9295907_forward
+    # SRR9295907 — bare files only
+    track SRR9295907_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_forward.bigWig
-    shortLabel SRR9295907 fwd
+    shortLabel SRR9295907 fwd all
     longLabel SRR9295907 forward all-reads (Kidney HEK293 High rep1)
     type bigWig
     color 255,0,0
     subGroups sample=SRR9295907 strand=fwd kind=all condition=high replicate=rep1
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
-    track SRR9295907_reverse
+    track SRR9295907_reverse_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_reverse.bigWig
-    shortLabel SRR9295907 rev
+    shortLabel SRR9295907 rev all
     longLabel SRR9295907 reverse all-reads (Kidney HEK293 High rep1)
     type bigWig
     color 0,0,255
@@ -108,23 +155,171 @@ dragAndDrop subTracks
     subGroups sample=SRR9295907 strand=rev kind=all condition=high replicate=rep1
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
-    track SRR9295908_forward
+    # SRR9295908 — bare files only
+    track SRR9295908_forward_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_forward.bigWig
-    shortLabel SRR9295908 fwd
+    shortLabel SRR9295908 fwd all
     longLabel SRR9295908 forward all-reads (Kidney HEK293 High rep2)
     type bigWig
     color 255,0,0
     subGroups sample=SRR9295908 strand=fwd kind=all condition=high replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
-    track SRR9295908_reverse
+    track SRR9295908_reverse_all
     parent ribohub on
     bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_reverse.bigWig
-    shortLabel SRR9295908 rev
+    shortLabel SRR9295908 rev all
     longLabel SRR9295908 reverse all-reads (Kidney HEK293 High rep2)
     type bigWig
     color 0,0,255
     negateValues on
     subGroups sample=SRR9295908 strand=rev kind=all condition=high replicate=rep2
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
+
+# ----- per-sample strand-overlay aggregates (siblings of composite) -----
+
+track SRR9295900_agg
+shortLabel SRR9295900 overlay
+longLabel SRR9295900 strand overlay (Kidney HEK293 Test rep2)
+type bigWig
+container multiWig
+aggregate transparentOverlay
+showSubtrackColorOnUi on
+visibility full
+autoScale off
+viewLimits -127:127
+maxHeightPixels 100:50:8
+
+    track SRR9295900_agg_fwd
+    parent SRR9295900_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295900 forward
+    type bigWig
+    color 255,0,0
+
+    track SRR9295900_agg_rev
+    parent SRR9295900_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295900 reverse
+    type bigWig
+    color 0,0,255
+    negateValues on
+
+track SRR9295905_agg
+shortLabel SRR9295905 overlay
+longLabel SRR9295905 strand overlay (Kidney HEK293 High rep1)
+type bigWig
+container multiWig
+aggregate transparentOverlay
+showSubtrackColorOnUi on
+visibility full
+autoScale off
+viewLimits -127:127
+maxHeightPixels 100:50:8
+
+    track SRR9295905_agg_fwd
+    parent SRR9295905_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295905 forward
+    type bigWig
+    color 255,0,0
+
+    track SRR9295905_agg_rev
+    parent SRR9295905_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295905 reverse
+    type bigWig
+    color 0,0,255
+    negateValues on
+
+track SRR9295906_agg
+shortLabel SRR9295906 overlay
+longLabel SRR9295906 strand overlay (Kidney HEK293 High rep2)
+type bigWig
+container multiWig
+aggregate transparentOverlay
+showSubtrackColorOnUi on
+visibility full
+autoScale off
+viewLimits -127:127
+maxHeightPixels 100:50:8
+
+    track SRR9295906_agg_fwd
+    parent SRR9295906_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295906 forward
+    type bigWig
+    color 255,0,0
+
+    track SRR9295906_agg_rev
+    parent SRR9295906_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295906 reverse
+    type bigWig
+    color 0,0,255
+    negateValues on
+
+track SRR9295907_agg
+shortLabel SRR9295907 overlay
+longLabel SRR9295907 strand overlay (Kidney HEK293 High rep1)
+type bigWig
+container multiWig
+aggregate transparentOverlay
+showSubtrackColorOnUi on
+visibility full
+autoScale off
+viewLimits -127:127
+maxHeightPixels 100:50:8
+
+    track SRR9295907_agg_fwd
+    parent SRR9295907_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295907 forward
+    type bigWig
+    color 255,0,0
+
+    track SRR9295907_agg_rev
+    parent SRR9295907_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295907 reverse
+    type bigWig
+    color 0,0,255
+    negateValues on
+
+track SRR9295908_agg
+shortLabel SRR9295908 overlay
+longLabel SRR9295908 strand overlay (Kidney HEK293 High rep2)
+type bigWig
+container multiWig
+aggregate transparentOverlay
+showSubtrackColorOnUi on
+visibility full
+autoScale off
+viewLimits -127:127
+maxHeightPixels 100:50:8
+
+    track SRR9295908_agg_fwd
+    parent SRR9295908_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_forward.bigWig
+    shortLabel forward
+    longLabel SRR9295908 forward
+    type bigWig
+    color 255,0,0
+
+    track SRR9295908_agg_rev
+    parent SRR9295908_agg
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_reverse.bigWig
+    shortLabel reverse
+    longLabel SRR9295908 reverse
+    type bigWig
+    color 0,0,255
+    negateValues on
