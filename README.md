@@ -20,3 +20,4 @@ python hub_builder.py generate --help
 ## Status
 
 Work in progress.
+Latest visual running version: https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A1%2D151000000&hgsid=4003667059_6wQ4ndI9fbZXQBkYXLfhWEMQmaa4 
