@@ -427,7 +427,6 @@ def classify_bigbed(path: Path) -> BigBedEntry | None:
     Returns None if the filename doesn't match the expected convention.
     The label is the text between "{SRR}_" and the extension:
       SRR123456_orfs.bb      → label = "orfs"
-      SRR123456_footprints.bigBed → label = "footprints"
     """
     match = _BIGBED_LABEL_RE.match(path.name)  # pattern defined at module level
     if not match:
@@ -1027,7 +1026,7 @@ def build_region_track(
 
     bigBed tracks are fundamentally different from bigWig signal tracks:
     no viewLimits, no autoScale, no negateValues. They display genomic
-    features (ORFs, footprints, etc.) as discrete blocks.
+    feature (ORFs) as discrete blocks.
     """
     name = trackhub.helpers.sanitize(f"{srr_id}_region_{label}")
     rich = long_label_for_sample(srr_id, metadata_row, ctx.label_fields)
@@ -1061,7 +1060,7 @@ def build_region_container(
     super_track = trackhub.SuperTrack(
         name=trackhub.helpers.sanitize(container_name),
         short_label="Region annotations",
-        long_label="Per-sample bigBed region annotations (ORFs, footprints, etc.)",
+        long_label="Per-sample bigBed region annotations (ORFs)",
     )
 
     n_tracks = 0
