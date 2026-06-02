@@ -309,17 +309,8 @@ container multiWig
 
 track ribohubregions
 shortLabel Region annotations
-longLabel Per-sample bigBed region annotations (ORFs, footprints, etc.)
+longLabel Per-sample bigBed region annotations (ORFs)
 superTrack on
-
-track SRR9295900regionfootprints
-bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_footprints.bb
-shortLabel SRR9295900 footprints
-longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (footprints)
-type bigBed
-visibility dense
-color 46,139,87
-parent ribohubregions on
 
 track SRR9295900regionorfs
 bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_orfs.bb
