@@ -1,11 +1,170 @@
-track SRR9295900
-shortLabel SRR9295900
-longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide | 2
-superTrack on show
+track ribohub
+shortLabel All RiboSeq tracks
+longLabel All RiboSeq samples (filter by subgroups)
+type bigWig
+visibility full
+autoScale off
+maxHeightPixels 100:50:8
+viewLimits -127:127
+filterComposite dimA dimB
+dimensions dimX=sample dimY=strand dimA=kind dimB=condition
+sortOrder sample=+ condition=+ strand=+ kind=+
+subGroup1 sample Sample SRR9295900=SRR9295900 SRR9295905=SRR9295905 SRR9295906=SRR9295906 SRR9295907=SRR9295907 SRR9295908=SRR9295908
+subGroup2 strand Strand fwd=Forward rev=Reverse
+subGroup3 kind Kind all=All_reads unique=Unique multi=Multimapped
+subGroup4 condition Condition test=Test high=High
+compositeTrack on
+
+    track SRR9295900forwardall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_forward.bigWig
+    shortLabel SRR9295900 fwd all
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (forward)
+    type bigWig
+    color 255,0,0
+    subGroups sample=SRR9295900 strand=fwd kind=all condition=test
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295900forwardmulti
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_forward.bigWig
+    shortLabel SRR9295900 fwd multi
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (forward, multi)
+    type bigWig
+    color 255,150,150
+    subGroups sample=SRR9295900 strand=fwd kind=multi condition=test
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295900forwardunique
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_forward.bigWig
+    shortLabel SRR9295900 fwd unique
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (forward, unique)
+    type bigWig
+    color 255,0,0
+    subGroups sample=SRR9295900 strand=fwd kind=unique condition=test
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295900reverseall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_reverse.bigWig
+    shortLabel SRR9295900 rev all
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (reverse)
+    type bigWig
+    color 0,0,255
+    negateValues on
+    subGroups sample=SRR9295900 strand=rev kind=all condition=test
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295900reversemulti
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_reverse.bigWig
+    shortLabel SRR9295900 rev multi
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (reverse, multi)
+    type bigWig
+    color 100,150,255
+    negateValues on
+    subGroups sample=SRR9295900 strand=rev kind=multi condition=test
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295900reverseunique
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_reverse.bigWig
+    shortLabel SRR9295900 rev unique
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (reverse, unique)
+    type bigWig
+    color 0,0,255
+    negateValues on
+    subGroups sample=SRR9295900 strand=rev kind=unique condition=test
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295905forwardall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_forward.bigWig
+    shortLabel SRR9295905 fwd all
+    longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
+    type bigWig
+    color 255,0,0
+    subGroups sample=SRR9295905 strand=fwd kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295905reverseall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_reverse.bigWig
+    shortLabel SRR9295905 rev all
+    longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
+    type bigWig
+    color 0,0,255
+    negateValues on
+    subGroups sample=SRR9295905 strand=rev kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295906forwardall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_forward.bigWig
+    shortLabel SRR9295906 fwd all
+    longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
+    type bigWig
+    color 255,0,0
+    subGroups sample=SRR9295906 strand=fwd kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295906reverseall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_reverse.bigWig
+    shortLabel SRR9295906 rev all
+    longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
+    type bigWig
+    color 0,0,255
+    negateValues on
+    subGroups sample=SRR9295906 strand=rev kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295907forwardall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_forward.bigWig
+    shortLabel SRR9295907 fwd all
+    longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
+    type bigWig
+    color 255,0,0
+    subGroups sample=SRR9295907 strand=fwd kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295907reverseall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_reverse.bigWig
+    shortLabel SRR9295907 rev all
+    longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
+    type bigWig
+    color 0,0,255
+    negateValues on
+    subGroups sample=SRR9295907 strand=rev kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295908forwardall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_forward.bigWig
+    shortLabel SRR9295908 fwd all
+    longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
+    type bigWig
+    color 255,0,0
+    subGroups sample=SRR9295908 strand=fwd kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
+
+    track SRR9295908reverseall
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_reverse.bigWig
+    shortLabel SRR9295908 rev all
+    longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
+    type bigWig
+    color 0,0,255
+    negateValues on
+    subGroups sample=SRR9295908 strand=rev kind=all condition=high
+    metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
+    parent ribohub on
 
 track SRR9295900agg
-shortLabel strand overlay
-longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide | 2 (strand overlay)
+shortLabel SRR9295900 overlay
+longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (strand overlay)
 type bigWig
 visibility full
 autoScale off
@@ -13,7 +172,6 @@ maxHeightPixels 100:50:8
 viewLimits -127:127
 aggregate transparentOverlay
 showSubtrackColorOnUi on
-parent SRR9295900 on
 container multiWig
 
     track SRR9295900aggforward
@@ -21,7 +179,7 @@ container multiWig
     shortLabel forward
     longLabel SRR9295900 forward
     type bigWig
-    color 213,94,0
+    color 255,0,0
     parent SRR9295900agg on
 
     track SRR9295900aggreverse
@@ -29,72 +187,13 @@ container multiWig
     shortLabel reverse
     longLabel SRR9295900 reverse
     type bigWig
-    color 0,114,178
+    color 0,0,255
     negateValues on
     parent SRR9295900agg on
 
-track SRR9295900FW
-shortLabel forward kinds
-longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide | 2 (forward: unique vs multimapped)
-type bigWig
-visibility full
-autoScale off
-viewLimits -127:127
-parent SRR9295900 on
-compositeTrack on
-
-    track SRR9295900FWunique
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_forward.bigWig
-    shortLabel unique
-    longLabel SRR9295900 forward unique
-    type bigWig
-    color 213,94,0
-    parent SRR9295900FW on
-
-    track SRR9295900FWmultimapped
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_forward.bigWig
-    shortLabel multi
-    longLabel SRR9295900 forward multimapped
-    type bigWig
-    color 240,178,122
-    parent SRR9295900FW on
-
-track SRR9295900REV
-shortLabel reverse kinds
-longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide | 2 (reverse: unique vs multimapped)
-type bigWig
-visibility full
-autoScale off
-viewLimits -127:127
-parent SRR9295900 on
-compositeTrack on
-
-    track SRR9295900REVunique
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_reverse.bigWig
-    shortLabel unique
-    longLabel SRR9295900 reverse unique
-    type bigWig
-    color 0,114,178
-    negateValues on
-    parent SRR9295900REV on
-
-    track SRR9295900REVmultimapped
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_reverse.bigWig
-    shortLabel multi
-    longLabel SRR9295900 reverse multimapped
-    type bigWig
-    color 133,193,233
-    negateValues on
-    parent SRR9295900REV on
-
-track SRR9295905
-shortLabel SRR9295905
-longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 1
-superTrack on
-
 track SRR9295905agg
-shortLabel strand overlay
-longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 1 (strand overlay)
+shortLabel SRR9295905 overlay
+longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
 type bigWig
 visibility full
 autoScale off
@@ -102,7 +201,6 @@ maxHeightPixels 100:50:8
 viewLimits -127:127
 aggregate transparentOverlay
 showSubtrackColorOnUi on
-parent SRR9295905 on
 container multiWig
 
     track SRR9295905aggforward
@@ -110,7 +208,7 @@ container multiWig
     shortLabel forward
     longLabel SRR9295905 forward
     type bigWig
-    color 213,94,0
+    color 255,0,0
     parent SRR9295905agg on
 
     track SRR9295905aggreverse
@@ -118,18 +216,13 @@ container multiWig
     shortLabel reverse
     longLabel SRR9295905 reverse
     type bigWig
-    color 0,114,178
+    color 0,0,255
     negateValues on
     parent SRR9295905agg on
 
-track SRR9295906
-shortLabel SRR9295906
-longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 2
-superTrack on
-
 track SRR9295906agg
-shortLabel strand overlay
-longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 2 (strand overlay)
+shortLabel SRR9295906 overlay
+longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
 type bigWig
 visibility full
 autoScale off
@@ -137,7 +230,6 @@ maxHeightPixels 100:50:8
 viewLimits -127:127
 aggregate transparentOverlay
 showSubtrackColorOnUi on
-parent SRR9295906 on
 container multiWig
 
     track SRR9295906aggforward
@@ -145,7 +237,7 @@ container multiWig
     shortLabel forward
     longLabel SRR9295906 forward
     type bigWig
-    color 213,94,0
+    color 255,0,0
     parent SRR9295906agg on
 
     track SRR9295906aggreverse
@@ -153,18 +245,13 @@ container multiWig
     shortLabel reverse
     longLabel SRR9295906 reverse
     type bigWig
-    color 0,114,178
+    color 0,0,255
     negateValues on
     parent SRR9295906agg on
 
-track SRR9295907
-shortLabel SRR9295907
-longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 1
-superTrack on
-
 track SRR9295907agg
-shortLabel strand overlay
-longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 1 (strand overlay)
+shortLabel SRR9295907 overlay
+longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
 type bigWig
 visibility full
 autoScale off
@@ -172,7 +259,6 @@ maxHeightPixels 100:50:8
 viewLimits -127:127
 aggregate transparentOverlay
 showSubtrackColorOnUi on
-parent SRR9295907 on
 container multiWig
 
     track SRR9295907aggforward
@@ -180,7 +266,7 @@ container multiWig
     shortLabel forward
     longLabel SRR9295907 forward
     type bigWig
-    color 213,94,0
+    color 255,0,0
     parent SRR9295907agg on
 
     track SRR9295907aggreverse
@@ -188,18 +274,13 @@ container multiWig
     shortLabel reverse
     longLabel SRR9295907 reverse
     type bigWig
-    color 0,114,178
+    color 0,0,255
     negateValues on
     parent SRR9295907agg on
 
-track SRR9295908
-shortLabel SRR9295908
-longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 2
-superTrack on
-
 track SRR9295908agg
-shortLabel strand overlay
-longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide | 2 (strand overlay)
+shortLabel SRR9295908 overlay
+longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
 type bigWig
 visibility full
 autoScale off
@@ -207,7 +288,6 @@ maxHeightPixels 100:50:8
 viewLimits -127:127
 aggregate transparentOverlay
 showSubtrackColorOnUi on
-parent SRR9295908 on
 container multiWig
 
     track SRR9295908aggforward
@@ -215,7 +295,7 @@ container multiWig
     shortLabel forward
     longLabel SRR9295908 forward
     type bigWig
-    color 213,94,0
+    color 255,0,0
     parent SRR9295908agg on
 
     track SRR9295908aggreverse
@@ -223,7 +303,65 @@ container multiWig
     shortLabel reverse
     longLabel SRR9295908 reverse
     type bigWig
-    color 0,114,178
+    color 0,0,255
     negateValues on
     parent SRR9295908agg on
 
+track ribohubregions
+shortLabel Region annotations
+longLabel Per-sample bigBed region annotations (ORFs, footprints, etc.)
+superTrack on
+
+track SRR9295900regionfootprints
+bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_footprints.bb
+shortLabel SRR9295900 footprints
+longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (footprints)
+type bigBed
+visibility dense
+color 46,139,87
+parent ribohubregions on
+
+track SRR9295900regionorfs
+bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_orfs.bb
+shortLabel SRR9295900 orfs
+longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (orfs)
+type bigBed
+visibility dense
+color 46,139,87
+parent ribohubregions on
+
+track SRR9295905regionorfs
+bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_orfs.bb
+shortLabel SRR9295905 orfs
+longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
+type bigBed
+visibility dense
+color 46,139,87
+parent ribohubregions on
+
+track SRR9295906regionorfs
+bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_orfs.bb
+shortLabel SRR9295906 orfs
+longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
+type bigBed
+visibility dense
+color 46,139,87
+parent ribohubregions on
+
+track SRR9295907regionorfs
+bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_orfs.bb
+shortLabel SRR9295907 orfs
+longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
+type bigBed
+visibility dense
+color 46,139,87
+parent ribohubregions on
+
+track SRR9295908regionorfs
+bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_orfs.bb
+shortLabel SRR9295908 orfs
+longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
+type bigBed
+visibility dense
+color 46,139,87
+parent ribohubregions on
