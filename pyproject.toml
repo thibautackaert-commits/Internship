@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ribohub"
+version = "0.1.0"
+description = "Generate UCSC Genome Browser track hubs from RiboSeq bigWig files."
+requires-python = ">=3.10"
+dependencies = [
+    "click",
+    "trackhub",
+]
+
+[project.scripts]
+ribohub = "ribohub:cli"
