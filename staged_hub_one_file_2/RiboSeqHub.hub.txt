@@ -15,17 +15,16 @@ visibility full
 autoScale off
 viewLimits -127:127
 maxHeightPixels 100:50:8
-subGroup1 sample Sample SRR9295900=SRR9295900 SRR9295905=SRR9295905 SRR9295906=SRR9295906 SRR9295907=SRR9295907 SRR9295908=SRR9295908
-subGroup2 strand Strand fwd=Forward rev=Reverse
-subGroup3 kind Kind all=All_reads unique=Unique multi=Multimapped
-subGroup4 condition Condition test=Test high=High
-subGroup5 replicate Replicate rep1=Replicate_1 rep2=Replicate_2
-subGroup6 tissue Tissue kidney=Kidney
-subGroup7 cellline Cell_Line hek293=HEK293
-subGroup8 inhibitor Inhibitor cycloheximide=Cycloheximide
-dimensions dimX=sample dimY=strand dimA=kind dimB=condition dimC=replicate dimD=tissue dimE=cellline dimF=inhibitor
-filterComposite dimA dimB dimC dimD dimE dimF
-sortOrder sample=+ condition=+ replicate=+ strand=+ kind=+
+subGroup1 strand Strand fwd=Forward rev=Reverse
+subGroup2 kind Kind all=All_reads unique=Unique multi=Multimapped
+subGroup3 condition Condition test=Test high=High
+subGroup4 replicate Replicate rep1=Replicate_1 rep2=Replicate_2
+subGroup5 tissue Tissue kidney=Kidney
+subGroup6 cellline Cell_Line hek293=HEK293
+subGroup7 inhibitor Inhibitor cycloheximide=Cycloheximide
+dimensions dimX=strand dimY=kind dimA=condition dimB=replicate dimC=tissue dimD=cellline dimE=inhibitor
+filterComposite dimA dimB dimC dimD dimE
+sortOrder strand=+ kind=+ condition=+ replicate=+
 dragAndDrop subTracks
 
     track SRR9295900_forward_all
@@ -35,7 +34,7 @@ dragAndDrop subTracks
     longLabel SRR9295900 forward all-reads (Kidney HEK293 Test rep2)
     type bigWig
     color 213,94,0
-    subGroups sample=SRR9295900 strand=fwd kind=all condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=all condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295900_reverse_all
@@ -46,7 +45,7 @@ dragAndDrop subTracks
     type bigWig
     color 0,114,178
     negateValues on
-    subGroups sample=SRR9295900 strand=rev kind=all condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=all condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295900_forward_unique
@@ -56,7 +55,7 @@ dragAndDrop subTracks
     longLabel SRR9295900 forward unique (Kidney HEK293 Test rep2)
     type bigWig
     color 213,94,0
-    subGroups sample=SRR9295900 strand=fwd kind=unique condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=unique condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295900_reverse_unique
@@ -67,7 +66,7 @@ dragAndDrop subTracks
     type bigWig
     color 0,114,178
     negateValues on
-    subGroups sample=SRR9295900 strand=rev kind=unique condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=unique condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295900_forward_multi
@@ -77,7 +76,7 @@ dragAndDrop subTracks
     longLabel SRR9295900 forward multimapped (Kidney HEK293 Test rep2)
     type bigWig
     color 230,159,0
-    subGroups sample=SRR9295900 strand=fwd kind=multi condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=multi condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295900_reverse_multi
@@ -88,7 +87,7 @@ dragAndDrop subTracks
     type bigWig
     color 86,180,233
     negateValues on
-    subGroups sample=SRR9295900 strand=rev kind=multi condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=multi condition=test replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295905_forward_all
@@ -98,7 +97,7 @@ dragAndDrop subTracks
     longLabel SRR9295905 forward all-reads (Kidney HEK293 High rep1)
     type bigWig
     color 213,94,0
-    subGroups sample=SRR9295905 strand=fwd kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
     track SRR9295905_reverse_all
@@ -109,7 +108,7 @@ dragAndDrop subTracks
     type bigWig
     color 0,114,178
     negateValues on
-    subGroups sample=SRR9295905 strand=rev kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
     track SRR9295906_forward_all
@@ -119,7 +118,7 @@ dragAndDrop subTracks
     longLabel SRR9295906 forward all-reads (Kidney HEK293 High rep2)
     type bigWig
     color 213,94,0
-    subGroups sample=SRR9295906 strand=fwd kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295906_reverse_all
@@ -130,7 +129,7 @@ dragAndDrop subTracks
     type bigWig
     color 0,114,178
     negateValues on
-    subGroups sample=SRR9295906 strand=rev kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295907_forward_all
@@ -140,7 +139,7 @@ dragAndDrop subTracks
     longLabel SRR9295907 forward all-reads (Kidney HEK293 High rep1)
     type bigWig
     color 213,94,0
-    subGroups sample=SRR9295907 strand=fwd kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
     track SRR9295907_reverse_all
@@ -151,7 +150,7 @@ dragAndDrop subTracks
     type bigWig
     color 0,114,178
     negateValues on
-    subGroups sample=SRR9295907 strand=rev kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=all condition=high replicate=rep1 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="1"
 
     track SRR9295908_forward_all
@@ -161,7 +160,7 @@ dragAndDrop subTracks
     longLabel SRR9295908 forward all-reads (Kidney HEK293 High rep2)
     type bigWig
     color 213,94,0
-    subGroups sample=SRR9295908 strand=fwd kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=fwd kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
     track SRR9295908_reverse_all
@@ -172,7 +171,7 @@ dragAndDrop subTracks
     type bigWig
     color 0,114,178
     negateValues on
-    subGroups sample=SRR9295908 strand=rev kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
+    subGroups strand=rev kind=all condition=high replicate=rep2 tissue=kidney cellline=hek293 inhibitor=cycloheximide
     metadata species="Homo sapiens" library_type="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide" replicate="2"
 
 track SRR9295900_agg
