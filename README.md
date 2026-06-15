@@ -243,16 +243,6 @@ Load into UCSC by pasting the hub URL into **My Hubs**:
 https://myserver.example.com/hubs/RiboSeqHub/RiboSeqHub.hub.txt
 ```
 
-## Environment Variables
-
-Set these to avoid passing flags every time:
-
-```bash
-export RIBOHUB_DATA_DIR=/data/riboseq
-export RIBOHUB_OUTPUT_DIR=/var/www/hubs
-export RIBOHUB_BASE_URL=https://myserver.example.com/hubs
-```
-
 ## Troubleshooting
 
 **"No samples found. Nothing to build."**
