@@ -1,6 +1,6 @@
 # RiboHub
 
-A command-line tool for building [UCSC Genome Browser](https://genome.ucsc.edu/) track hubs from P-shifted bigWig files produced by a Ribo-seq pipeline. Designed around the [RiboSeqOrg](https://riboseqorg.org/) data ecosystem and the [GWIPS-viz](https://gwips.ucc.ie/) browser infrastructure.
+A command-line tool for building [UCSC Genome Browser](https://genome.ucsc.edu/) track hubs from P-shifted bigWig files produced by a Ribo-seq pipeline. Designed around the RiboSeq data  and the [GWIPS-viz](https://gwips.ucc.ie/) browser infrastructure.
 
 ## How It Works
 
