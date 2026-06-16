@@ -10,7 +10,7 @@ track ribohub
 shortLabel All RiboSeq tracks
 longLabel All RiboSeq samples (filter by subgroups)
 type bigWig
-autoScale off
+autoScale on
 dimensions dimX=strand dimY=kind dimA=condition dimB=fraction
 filterComposite dimA dimB
 maxHeightPixels 100:50:8
@@ -170,62 +170,158 @@ compositeTrack on
     subGroups strand=rev kind=all condition=high fraction=0_0
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
-track ribohubregions
-shortLabel Region annotations
-longLabel Per-sample bigBed region annotations (ORFs)
+track ribohubaggregates
+shortLabel Strand overlays
+longLabel Per-sample strand-overlay aggregates
 type superTrack
 superTrack on
 
-    track SRR9295900regionfootprints
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_footprints.bb
-    shortLabel SRR9295900 footprints
-    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (footprints)
-    type bigBed
-    color 46,139,87
-    parent ribohubregions
-    visibility dense
+    track SRR9295900agg
+    shortLabel SRR9295900 overlay
+    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (strand overlay)
+    type bigWig
+    aggregate transparentOverlay
+    autoScale group
+    maxHeightPixels 100:50:8
+    parent ribohubaggregates
+    showSubtrackColorOnUi on
+    viewLimits -127:127
+    visibility full
+    container multiWig
+    
+        track SRR9295900aggforward
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_forward.bigWig
+        shortLabel forward
+        longLabel SRR9295900 forward
+        type bigWig
+        color 0,51,153
+        parent SRR9295900agg
+    
+        track SRR9295900aggreverse
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_reverse.bigWig
+        shortLabel reverse
+        longLabel SRR9295900 reverse
+        type bigWig
+        color 204,85,0
+        negateValues on
+        parent SRR9295900agg
 
-    track SRR9295900regionorfs
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_orfs.bb
-    shortLabel SRR9295900 orfs
-    longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (orfs)
-    type bigBed
-    color 46,139,87
-    parent ribohubregions
-    visibility dense
+    track SRR9295905agg
+    shortLabel SRR9295905 overlay
+    longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
+    type bigWig
+    aggregate transparentOverlay
+    autoScale group
+    maxHeightPixels 100:50:8
+    parent ribohubaggregates
+    showSubtrackColorOnUi on
+    viewLimits -127:127
+    visibility full
+    container multiWig
+    
+        track SRR9295905aggforward
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_forward.bigWig
+        shortLabel forward
+        longLabel SRR9295905 forward
+        type bigWig
+        color 0,51,153
+        parent SRR9295905agg
+    
+        track SRR9295905aggreverse
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_reverse.bigWig
+        shortLabel reverse
+        longLabel SRR9295905 reverse
+        type bigWig
+        color 204,85,0
+        negateValues on
+        parent SRR9295905agg
 
-    track SRR9295905regionorfs
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_orfs.bb
-    shortLabel SRR9295905 orfs
-    longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
-    type bigBed
-    color 46,139,87
-    parent ribohubregions
-    visibility dense
+    track SRR9295906agg
+    shortLabel SRR9295906 overlay
+    longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
+    type bigWig
+    aggregate transparentOverlay
+    autoScale group
+    maxHeightPixels 100:50:8
+    parent ribohubaggregates
+    showSubtrackColorOnUi on
+    viewLimits -127:127
+    visibility full
+    container multiWig
+    
+        track SRR9295906aggforward
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_forward.bigWig
+        shortLabel forward
+        longLabel SRR9295906 forward
+        type bigWig
+        color 0,51,153
+        parent SRR9295906agg
+    
+        track SRR9295906aggreverse
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_reverse.bigWig
+        shortLabel reverse
+        longLabel SRR9295906 reverse
+        type bigWig
+        color 204,85,0
+        negateValues on
+        parent SRR9295906agg
 
-    track SRR9295906regionorfs
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_orfs.bb
-    shortLabel SRR9295906 orfs
-    longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
-    type bigBed
-    color 46,139,87
-    parent ribohubregions
-    visibility dense
+    track SRR9295907agg
+    shortLabel SRR9295907 overlay
+    longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
+    type bigWig
+    aggregate transparentOverlay
+    autoScale group
+    maxHeightPixels 100:50:8
+    parent ribohubaggregates
+    showSubtrackColorOnUi on
+    viewLimits -127:127
+    visibility full
+    container multiWig
+    
+        track SRR9295907aggforward
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_forward.bigWig
+        shortLabel forward
+        longLabel SRR9295907 forward
+        type bigWig
+        color 0,51,153
+        parent SRR9295907agg
+    
+        track SRR9295907aggreverse
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_reverse.bigWig
+        shortLabel reverse
+        longLabel SRR9295907 reverse
+        type bigWig
+        color 204,85,0
+        negateValues on
+        parent SRR9295907agg
 
-    track SRR9295907regionorfs
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_orfs.bb
-    shortLabel SRR9295907 orfs
-    longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
-    type bigBed
-    color 46,139,87
-    parent ribohubregions
-    visibility dense
-
-    track SRR9295908regionorfs
-    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_orfs.bb
-    shortLabel SRR9295908 orfs
-    longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
-    type bigBed
-    color 46,139,87
-    parent ribohubregions
-    visibility dense
+    track SRR9295908agg
+    shortLabel SRR9295908 overlay
+    longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (strand overlay)
+    type bigWig
+    aggregate transparentOverlay
+    autoScale group
+    maxHeightPixels 100:50:8
+    parent ribohubaggregates
+    showSubtrackColorOnUi on
+    viewLimits -127:127
+    visibility full
+    container multiWig
+    
+        track SRR9295908aggforward
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_forward.bigWig
+        shortLabel forward
+        longLabel SRR9295908 forward
+        type bigWig
+        color 0,51,153
+        parent SRR9295908agg
+    
+        track SRR9295908aggreverse
+        bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_reverse.bigWig
+        shortLabel reverse
+        longLabel SRR9295908 reverse
+        type bigWig
+        color 204,85,0
+        negateValues on
+        parent SRR9295908agg
