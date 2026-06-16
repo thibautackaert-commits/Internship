@@ -24,7 +24,7 @@ subGroup4 fraction Fraction 0_0=0.0 dmso=DMSO
 compositeTrack on
 
     track SRR9295900forwardall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_pshifted_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_forward.bigWig
     shortLabel SRR9295900 fwd all
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (forward)
     type bigWig
@@ -34,7 +34,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
 
     track SRR9295900forwardmulti
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_pshifted_multimapped_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_forward.bigWig
     shortLabel SRR9295900 fwd multi
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (forward, multi)
     type bigWig
@@ -44,7 +44,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
 
     track SRR9295900forwardunique
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_pshifted_unique_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_forward.bigWig
     shortLabel SRR9295900 fwd unique
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (forward, unique)
     type bigWig
@@ -54,7 +54,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
 
     track SRR9295900reverseall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_pshifted_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_reverse.bigWig
     shortLabel SRR9295900 rev all
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (reverse)
     type bigWig
@@ -65,7 +65,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
 
     track SRR9295900reversemulti
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_pshifted_multimapped_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_multimapped_reverse.bigWig
     shortLabel SRR9295900 rev multi
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (reverse, multi)
     type bigWig
@@ -76,7 +76,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
 
     track SRR9295900reverseunique
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_pshifted_unique_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_pshifted_unique_reverse.bigWig
     shortLabel SRR9295900 rev unique
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (reverse, unique)
     type bigWig
@@ -87,7 +87,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="Test" inhibitor="Cycloheximide"
 
     track SRR9295905forwardall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295905_pshifted_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_forward.bigWig
     shortLabel SRR9295905 fwd all
     longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
     type bigWig
@@ -97,7 +97,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295905reverseall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295905_pshifted_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_pshifted_reverse.bigWig
     shortLabel SRR9295905 rev all
     longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
     type bigWig
@@ -108,7 +108,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295906forwardall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295906_pshifted_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_forward.bigWig
     shortLabel SRR9295906 fwd all
     longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
     type bigWig
@@ -118,7 +118,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295906reverseall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295906_pshifted_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_pshifted_reverse.bigWig
     shortLabel SRR9295906 rev all
     longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
     type bigWig
@@ -129,7 +129,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295907forwardall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295907_pshifted_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_forward.bigWig
     shortLabel SRR9295907 fwd all
     longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
     type bigWig
@@ -139,7 +139,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295907reverseall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295907_pshifted_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_pshifted_reverse.bigWig
     shortLabel SRR9295907 rev all
     longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
     type bigWig
@@ -150,7 +150,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295908forwardall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295908_pshifted_forward.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_forward.bigWig
     shortLabel SRR9295908 fwd all
     longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (forward)
     type bigWig
@@ -160,7 +160,7 @@ compositeTrack on
     metadata scientificname="Homo sapiens" librarytype="Ribo-Seq" tissue="Kidney" cell_line="HEK293" condition="High" inhibitor="Cycloheximide"
 
     track SRR9295908reverseall
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295908_pshifted_reverse.bigWig
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_pshifted_reverse.bigWig
     shortLabel SRR9295908 rev all
     longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (reverse)
     type bigWig
@@ -177,7 +177,7 @@ type superTrack
 superTrack on
 
     track SRR9295900regionfootprints
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_footprints.bb
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_footprints.bb
     shortLabel SRR9295900 footprints
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (footprints)
     type bigBed
@@ -186,7 +186,7 @@ superTrack on
     visibility dense
 
     track SRR9295900regionorfs
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295900_orfs.bb
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295900_orfs.bb
     shortLabel SRR9295900 orfs
     longLabel SRR9295900 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | Test | Cycloheximide (orfs)
     type bigBed
@@ -195,7 +195,7 @@ superTrack on
     visibility dense
 
     track SRR9295905regionorfs
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295905_orfs.bb
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295905_orfs.bb
     shortLabel SRR9295905 orfs
     longLabel SRR9295905 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
     type bigBed
@@ -204,7 +204,7 @@ superTrack on
     visibility dense
 
     track SRR9295906regionorfs
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295906_orfs.bb
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295906_orfs.bb
     shortLabel SRR9295906 orfs
     longLabel SRR9295906 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
     type bigBed
@@ -213,7 +213,7 @@ superTrack on
     visibility dense
 
     track SRR9295907regionorfs
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295907_orfs.bb
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295907_orfs.bb
     shortLabel SRR9295907 orfs
     longLabel SRR9295907 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
     type bigBed
@@ -222,7 +222,7 @@ superTrack on
     visibility dense
 
     track SRR9295908regionorfs
-    bigDataUrl https://gwips.ucc.ie/ribo_data/SRR929/59/SRR9295908_orfs.bb
+    bigDataUrl https://raw.githubusercontent.com/thibautackaert-commits/test/main/SRR929/59/SRR9295908_orfs.bb
     shortLabel SRR9295908 orfs
     longLabel SRR9295908 | Homo sapiens | Ribo-Seq | Kidney | HEK293 | High | Cycloheximide (orfs)
     type bigBed
